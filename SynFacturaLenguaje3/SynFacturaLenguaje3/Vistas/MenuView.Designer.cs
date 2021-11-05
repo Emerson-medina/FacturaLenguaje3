@@ -29,6 +29,7 @@ namespace SynFacturaLenguaje3.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuView));
             this.ribbonControlAdv1 = new Syncfusion.Windows.Forms.Tools.RibbonControlAdv();
             this.toolStripTabItem1 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
@@ -39,6 +40,7 @@ namespace SynFacturaLenguaje3.Vistas
             this.toolStripTabItem3 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx3 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
             this.ProductosToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.tabbedGroupedMDIManager1 = new Syncfusion.Windows.Forms.Tools.TabbedGroupedMDIManager();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlAdv1)).BeginInit();
             this.ribbonControlAdv1.SuspendLayout();
             this.toolStripTabItem1.Panel.SuspendLayout();
@@ -225,12 +227,25 @@ namespace SynFacturaLenguaje3.Vistas
             this.ProductosToolStripButton.Text = "Productos";
             this.ProductosToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // tabbedGroupedMDIManager1
+            // 
+            this.tabbedGroupedMDIManager1.AttachedTo = this;
+            this.tabbedGroupedMDIManager1.CloseButtonBackColor = System.Drawing.Color.White;
+            this.tabbedGroupedMDIManager1.CloseButtonToolTip = "";
+            this.tabbedGroupedMDIManager1.DropDownButtonToolTip = "";
+            this.tabbedGroupedMDIManager1.ImageSize = new System.Drawing.Size(16, 16);
+            this.tabbedGroupedMDIManager1.NeedUpdateHostedForm = false;
+            this.tabbedGroupedMDIManager1.ShowCloseButton = true;
+            this.tabbedGroupedMDIManager1.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererBlendDark);
+            this.tabbedGroupedMDIManager1.ThemeName = "TabRendererBlendDark";
+            // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 373);
             this.Controls.Add(this.ribbonControlAdv1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.Name = "MenuView";
@@ -264,5 +279,6 @@ namespace SynFacturaLenguaje3.Vistas
         private Syncfusion.Windows.Forms.Tools.ToolStripTabItem toolStripTabItem3;
         private Syncfusion.Windows.Forms.Tools.ToolStripEx toolStripEx3;
         private System.Windows.Forms.ToolStripButton ProductosToolStripButton;
+        private Syncfusion.Windows.Forms.Tools.TabbedGroupedMDIManager tabbedGroupedMDIManager1;
     }
 }

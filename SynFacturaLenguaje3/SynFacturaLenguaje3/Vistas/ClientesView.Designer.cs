@@ -29,6 +29,7 @@ namespace SynFacturaLenguaje3.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CancelarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
@@ -39,17 +40,18 @@ namespace SynFacturaLenguaje3.Vistas
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.NombreTextBox = new System.Windows.Forms.TextBox();
             this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.IdentidadTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ImagenButton = new System.Windows.Forms.Button();
+            this.FotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.IdentidadMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // CancelarButton
@@ -136,16 +138,6 @@ namespace SynFacturaLenguaje3.Vistas
             this.IdTextBox.Size = new System.Drawing.Size(106, 26);
             this.IdTextBox.TabIndex = 20;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(115, 259);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(154, 22);
-            this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "Es administrador";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -182,13 +174,6 @@ namespace SynFacturaLenguaje3.Vistas
             this.label1.TabIndex = 15;
             this.label1.Text = "Id";
             // 
-            // IdentidadTextBox
-            // 
-            this.IdentidadTextBox.Location = new System.Drawing.Point(188, 88);
-            this.IdentidadTextBox.Name = "IdentidadTextBox";
-            this.IdentidadTextBox.Size = new System.Drawing.Size(346, 26);
-            this.IdentidadTextBox.TabIndex = 31;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -198,32 +183,46 @@ namespace SynFacturaLenguaje3.Vistas
             this.label5.TabIndex = 30;
             this.label5.Text = "Identidad";
             // 
-            // button1
+            // ImagenButton
             // 
-            this.button1.Location = new System.Drawing.Point(737, 250);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 31);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Imagen...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ImagenButton.Enabled = false;
+            this.ImagenButton.Location = new System.Drawing.Point(737, 250);
+            this.ImagenButton.Name = "ImagenButton";
+            this.ImagenButton.Size = new System.Drawing.Size(86, 31);
+            this.ImagenButton.TabIndex = 33;
+            this.ImagenButton.Text = "Imagen...";
+            this.ImagenButton.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // FotoPictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBox1.Location = new System.Drawing.Point(604, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 198);
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
+            this.FotoPictureBox.BackColor = System.Drawing.SystemColors.Window;
+            this.FotoPictureBox.Location = new System.Drawing.Point(604, 45);
+            this.FotoPictureBox.Name = "FotoPictureBox";
+            this.FotoPictureBox.Size = new System.Drawing.Size(219, 198);
+            this.FotoPictureBox.TabIndex = 32;
+            this.FotoPictureBox.TabStop = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // IdentidadMaskedTextBox
+            // 
+            this.IdentidadMaskedTextBox.Location = new System.Drawing.Point(188, 88);
+            this.IdentidadMaskedTextBox.Mask = "####-####-#####";
+            this.IdentidadMaskedTextBox.Name = "IdentidadMaskedTextBox";
+            this.IdentidadMaskedTextBox.Size = new System.Drawing.Size(100, 26);
+            this.IdentidadMaskedTextBox.TabIndex = 34;
+            this.IdentidadMaskedTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.IdentidadMaskedTextBox_MaskInputRejected);
             // 
             // ClientesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 623);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.IdentidadTextBox);
+            this.Controls.Add(this.IdentidadMaskedTextBox);
+            this.Controls.Add(this.ImagenButton);
+            this.Controls.Add(this.FotoPictureBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.GuardarButton);
@@ -235,7 +234,6 @@ namespace SynFacturaLenguaje3.Vistas
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.NombreTextBox);
             this.Controls.Add(this.IdTextBox);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -246,32 +244,32 @@ namespace SynFacturaLenguaje3.Vistas
             this.Text = "Clientes";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button CancelarButton;
-        private System.Windows.Forms.Button GuardarButton;
-        private System.Windows.Forms.Button EliminarButton;
-        private System.Windows.Forms.Button ModificarButton;
-        private System.Windows.Forms.Button NuevoButton;
-        private System.Windows.Forms.DataGridView ClientesDataGridView;
-        private System.Windows.Forms.TextBox DireccionTextBox;
-        private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox NombreTextBox;
-        private System.Windows.Forms.TextBox IdTextBox;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox IdentidadTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button CancelarButton;
+        public System.Windows.Forms.Button GuardarButton;
+        public System.Windows.Forms.Button EliminarButton;
+        public System.Windows.Forms.Button ModificarButton;
+        public System.Windows.Forms.Button NuevoButton;
+        public System.Windows.Forms.DataGridView ClientesDataGridView;
+        public System.Windows.Forms.TextBox DireccionTextBox;
+        public System.Windows.Forms.TextBox EmailTextBox;
+        public System.Windows.Forms.TextBox NombreTextBox;
+        public System.Windows.Forms.TextBox IdTextBox;
+        public System.Windows.Forms.PictureBox FotoPictureBox;
+        public System.Windows.Forms.Button ImagenButton;
+        public System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.MaskedTextBox IdentidadMaskedTextBox;
     }
 }

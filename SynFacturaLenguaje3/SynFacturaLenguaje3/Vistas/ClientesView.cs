@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SynFacturaLenguaje3.Controladores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace SynFacturaLenguaje3.Vistas
         public ClientesView()
         {
             InitializeComponent();
+
+            ClienteController controlador = new ClienteController(this); 
+        }
+
+        private void IdentidadMaskedTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

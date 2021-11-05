@@ -33,9 +33,11 @@ namespace SynFacturaLenguaje3.Controladores
                 bool elimino = userDAO.EliminarUsuario(Convert.ToInt32(vista.UsuariosDataGridView.CurrentRow.Cells["ID"].Value.ToString()));
                 if (elimino)
                 {
+                    
                     DesabilitarControles();
                     LimpiarControles();
                     MessageBox.Show("Usuario eliminado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListarUsuarios(); 
                 }
                 else
                 {
