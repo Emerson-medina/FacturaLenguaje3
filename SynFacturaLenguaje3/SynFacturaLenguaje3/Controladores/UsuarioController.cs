@@ -13,14 +13,54 @@ namespace SynFacturaLenguaje3.Controladores
     public class UsuarioController
     {
         UsuariosView vista;
-        string operacion = String.Empty; 
+        string operacion = String.Empty;
+        UsuarioDAO userDAO = new UsuarioDAO();
+        Usuario user = new Usuario();
         public UsuarioController( UsuariosView view)
         {
             vista = view;
             vista.NuevoButton.Click += new EventHandler(Nuevo);
-            vista.GuardarButton.Click += new EventHandler(Guardar); 
+            vista.GuardarButton.Click += new EventHandler(Guardar);
+            vista.Load += new EventHandler(Load);
+            vista.ModificarButton.Click += new EventHandler(Modificar);
+            vista.EliminarButton.Click += new EventHandler(Eliminar); 
         }
 
+        private void Eliminar(object sender, EventArgs e)
+        {
+            if (vista.UsuariosDataGridView.SelectedRows.Count > 0)
+            {
+                bool elimino = userDAO.EliminarUsuario(Convert.ToInt32(vista.UsuariosDataGridView.CurrentRow.Cells["ID"].Value.ToString()));
+                if (elimino)
+                {
+                    DesabilitarControles();
+                    LimpiarControles();
+                    MessageBox.Show("Usuario eliminado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error al intentar eliminar el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Modificar(object sender, EventArgs e)
+        {
+            if (vista.UsuariosDataGridView.SelectedRows.Count > 0)
+            {
+                operacion = "Modificar";
+                vista.IdTextBox.Text = vista.UsuariosDataGridView.CurrentRow.Cells["ID"].Value.ToString();
+                vista.NombreTextBox.Text = vista.UsuariosDataGridView.CurrentRow.Cells["NOMBRE"].Value.ToString();
+                vista.EmailTextBox.Text = vista.UsuariosDataGridView.CurrentRow.Cells["EMAIL"].Value.ToString();
+                vista.EsAdministradorCheckBox.Checked = Convert.ToBoolean(vista.UsuariosDataGridView.CurrentRow.Cells["ESADMINISTRADOR"].Value);
+                HabilitarControles();
+            }
+        }
+
+        private void Load(object sender, EventArgs e)
+        {
+            ListarUsuarios(); 
+        }
 
         private void Nuevo(object senderm, EventArgs e)
         {
@@ -51,25 +91,53 @@ namespace SynFacturaLenguaje3.Controladores
                 return;
             }
 
-            UsuarioDAO userDAO = new UsuarioDAO();
-            Usuario user = new Usuario();
-
             user.Nombre = vista.NombreTextBox.Text;
             user.Email = vista.EmailTextBox.Text;
             user.Clave = vista.ClaveTextBox.Text;
             user.EsAdministrador = vista.EsAdministradorCheckBox.Checked;
+            user.Id = Convert.ToInt32(vista.IdTextBox.Text); 
 
-            bool inserto = userDAO.InsertarNuevoUsuario(user); 
+            if (operacion == "Nuevo")
+            {
+                bool inserto = userDAO.InsertarNuevoUsuario(user);
 
-            if (inserto)
+                if (inserto)
+                {
+                    
+                    ListarUsuarios();
+                    MessageBox.Show("Usuario creado exitosamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DesabilitarControles();
+                    LimpiarControles();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo crear el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else if (operacion == "Modificar")
             {
-                MessageBox.Show("Usuario creado exitosamente" ,"Atención" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DesabilitarControles();
-                LimpiarControles(); 
-            } else
-            {
-                MessageBox.Show("No se pudo crear el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+               
+
+                bool modifico = userDAO.ActualizarUsuario(user);
+
+                if (modifico)
+                {
+                    MessageBox.Show("Usuario modificado exitosamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DesabilitarControles();
+                    LimpiarControles();
+                    ListarUsuarios();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo modificar el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
+            
+        }
+        private void ListarUsuarios()
+        {
+            vista.UsuariosDataGridView.DataSource =  userDAO.GetUsuarios(); 
         }
 
         private void LimpiarControles()

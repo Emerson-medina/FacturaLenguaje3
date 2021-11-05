@@ -39,14 +39,14 @@ namespace SynFacturaLenguaje3.Vistas
             this.NombreTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.ClaveTextBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UsuariosDataGridView = new System.Windows.Forms.DataGridView();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.ModificarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,18 +127,20 @@ namespace SynFacturaLenguaje3.Vistas
             this.ClaveTextBox.Enabled = false;
             this.ClaveTextBox.Location = new System.Drawing.Point(158, 171);
             this.ClaveTextBox.Name = "ClaveTextBox";
+            this.ClaveTextBox.PasswordChar = '*';
             this.ClaveTextBox.Size = new System.Drawing.Size(346, 26);
             this.ClaveTextBox.TabIndex = 8;
             // 
-            // dataGridView1
+            // UsuariosDataGridView
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.UsuariosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 336);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(825, 244);
-            this.dataGridView1.TabIndex = 9;
+            this.UsuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UsuariosDataGridView.Location = new System.Drawing.Point(0, 336);
+            this.UsuariosDataGridView.Name = "UsuariosDataGridView";
+            this.UsuariosDataGridView.Size = new System.Drawing.Size(825, 244);
+            this.UsuariosDataGridView.TabIndex = 9;
             // 
             // NuevoButton
             // 
@@ -201,7 +203,7 @@ namespace SynFacturaLenguaje3.Vistas
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.ModificarButton);
             this.Controls.Add(this.NuevoButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.UsuariosDataGridView);
             this.Controls.Add(this.ClaveTextBox);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.NombreTextBox);
@@ -215,7 +217,7 @@ namespace SynFacturaLenguaje3.Vistas
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "UsuariosView";
             this.Text = "Usuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,7 +235,7 @@ namespace SynFacturaLenguaje3.Vistas
         public System.Windows.Forms.TextBox NombreTextBox;
         public System.Windows.Forms.TextBox EmailTextBox;
         public System.Windows.Forms.TextBox ClaveTextBox;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView UsuariosDataGridView;
         public System.Windows.Forms.Button NuevoButton;
         public System.Windows.Forms.Button ModificarButton;
         public System.Windows.Forms.Button EliminarButton;
